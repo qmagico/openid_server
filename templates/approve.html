@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+<form action="/openid" method="post">{% csrf_token %}
+  Permitir enviar informações pessoais para o QMágico ?<input type="checkbox" name="approve">
+  <br>
+  <input type="submit" value="OK">
+</form>
+</body>
+</html>

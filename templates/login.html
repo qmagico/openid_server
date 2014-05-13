@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+{% if logged %}
+You are logged in as {{ name }}.
+<br>
+<a href="/logout">Logout</a>
+{% else %}
+{{ error }}
+<form action="/login" method="post">{% csrf_token %}
+  Username <input type="text" name="username"><br>
+  Password: <input type="text" name="password"><br>
+  {% if next %}
+    <input type="hidden" name="next" value="{{ next }}">
+  {% endif %}
+  <input type="submit" value="OK">
+</form>
+{% endif %}
+</body>
+</html>
