@@ -82,20 +82,21 @@ O browser faz uma chamada com a url que recebeu na requisição 7, '/loginopenid
 São feitas algumas validações: 
 se a url que o retornou é a mesma a qual foi feita a requisição (no caso, '/openid')
 se as informações específicas do usuário que o QMágico estava esperando são as mesmas que recebeu (no caso, 'nickname')
-se as informações específicas do usuário estão de acordo com a especificação SREG
+se as informações específicas do usuário estão de acordo com a especificação SREG    
 
-    CAMPOS ACEITOS PELA ESPECIFICACAO SREG:
-    parameter|name
-    :-----------:|:--------------:
-    'fullname'|'Full Name'
-    'nickname'|'Nickname'
-    'dob'|'Date of Birth'
-    'email'|'E-mail Address'
-    'gender'|'Gender'
-    'postcode'|'Postal Code'
-    'country'|'Country'
-    'language'|'Language'
-    'timezone'|'Time Zone'
+CAMPOS ACEITOS PELA ESPECIFICACAO SREG:
+
+parameter|name
+:-----------:|:--------------:
+'fullname'|'Full Name'
+'nickname'|'Nickname'
+'dob'|'Date of Birth'
+'email'|'E-mail Address'
+'gender'|'Gender'
+'postcode'|'Postal Code'
+'country'|'Country'
+'language'|'Language'
+'timezone'|'Time Zone'
 
 se o identificador do consumidor recebido pelo servidor da escola equivale ao identificador enviado (janrain\_nonce)
 
@@ -119,6 +120,7 @@ Caso o usuário esteja logado no QMágico, o browser é redirecionado para '/', 
 
 - method: GET 
 - parametros:
+
 provider: string que identifica o servidor ao qual o QMágico irá se comunicar para obter as informações do usuário
 
 - HEADER: None
@@ -159,7 +161,7 @@ Caso ainda não exista uma 'Association' pré-estabelecida, o QMágico faz uma r
 - method: POST
 
 parametro | exemplo
-:---------:|:----------------:
+:---------:|:----------------
 u'openid.session\_type'| u'DH-SHA1' 
 u'openid.mode'| u'associate'
 u'openid.dh\_consumer\_public'| u'AKFel/ucgP/LMGfeMJuEA/vs0WsR+7EnTWqrmbHnu/+BeOgFIpTEHcX79IPeBMPV2bc7uNZ6vOt2Q4DwM0XxUbrWIi9VQZwCoCStuTLe+eOr5BFnkugs0YFhYlVOyN6/bwzk/qAncA1kGSlHJuszchIUJN5FXmli1vlZgKSTUIcv'
@@ -173,6 +175,7 @@ Resposta:
 - Parâmetros: None
 
 - Body:
+
 'assoc\_handle:{HMAC-SHA1}{537506f9}{3DCF/A==}
 assoc\_type:HMAC-SHA1
 dh\_server\_public:AMdRWv12gZpz9Vxw5bcm79iQOiHTk3aHtRUE0QXvYK5oFE8AnQINXQXhCewurG6yZznf+/wdo39kJczwGeHkyksJwxTGRTyR9u6bAijKHoHBGi2wnOMi6GAcGoc7ggA4dFh50AEyPV7Xwif/oLBefPt3duplpGRkCMl29wHYL5MY
@@ -190,6 +193,7 @@ Continuação do fluxo de 1.
 
 - method: GET 
 - parametros:
+
 provider: string que identifica o servidor ao qual o QMágico irá se comunicar para obter as informações do usuário
 
 - HEADER:None
@@ -239,8 +243,9 @@ Caso o usuário não esteja logado, as informações do POST são salvas para se
 - Requestor: Browser
 
 - method: POST
+
 parametro | exemplo
-:----------------:|:--------------------:
+:----------------:|:--------------------
 u'openid.claimed\_id'| u'http://www.openid\_server.com/xrds'
 u'openid.identity'|| u'http://www.openid\_server.com/xrds'
 u'openid.mode'| u'checkid\_setup'
@@ -264,8 +269,9 @@ Caso o usuário não esteja logado, as informações do POST são salvas para se
 - Requestor: Servidor da Escola, caso o usuário não estivesse logado, ou Browser, caso contrário
 
 - method: POST
+
 parametro | exemplo
-:----------------:|:--------------------:
+:----------------:|:--------------------
 u'openid.claimed\_id'| u'http://www.openid\_server.com/xrds'
 u'openid.identity'| u'http://www.openid\_server.com/xrds'
 u'openid.mode'| u'checkid\_setup'
@@ -280,8 +286,9 @@ u'openid.sreg.required'| u'nickname'
 
 Resposta:
 - Status:302
+
 parametro | exemplo
-:----------------:|:--------------------: 
+:----------------:|:--------------------
 'janrain\_nonce'| '2014-05-15T18%3A16%3A01ZRtjFd7'
 'openid.assoc\_handle'| '%7BHMAC-SHA1%7D%7B53750e82%7D%7BW4WfyA%3D%3D%7D'
 'openid.claimed\_id'| 'http%3A%2F%2Fwww.openid\_server.com%2Fxrds'
@@ -305,7 +312,7 @@ parametro | exemplo
 - method: GET 
 
 parametro | exemplo
-:----------------:|:--------------------:
+:----------------:|:--------------------
 u'openid.return\_to'| u'http://localhost:8080/loginopenid/complete?janrain\_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
 u'openid.op\_endpoint'| u'http://localhost:8090/openid'
 u'openid.ns'| u'http://specs.openid.net/auth/2.0'
@@ -332,8 +339,9 @@ Resposta:
 - Requestor: QMágico
 
 - method: POST
+
 parametro | exemplo
-:----------------:|:--------------------:
+:----------------:|:--------------------
 u'janrain\_nonce'| u'2014-05-15T18:16:01ZRtjFd7'
 u'openid.assoc\_handle'| u'{HMAC-SHA1}{53750e82}{W4WfyA==}'
 u'openid.claimed\_id'| u'http://localhost:8090/xrds'
