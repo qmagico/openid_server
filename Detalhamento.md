@@ -1,7 +1,7 @@
 Detalhamento
 =============
 
-![Diagrama de Sequencia do Fluxo](/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
+![Diagrama de Sequencia do Fluxo](/images/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
 
 # Detalhamento do Fluxo:
 
