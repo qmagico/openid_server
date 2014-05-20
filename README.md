@@ -40,7 +40,7 @@ python consumer.py
 
 Você pode entender melhor o fluxo do processo com o diagrama abaixo e a documentação adicional a seguir:
 
-![Diagrama de Sequencia do Fluxo](/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
+![Diagrama de Sequencia do Fluxo](/images/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
 
 Você pode ler o Fluxo Resumido da autenticação via OpenId [aqui](https://github.com/qmagico/openid_server/blob/master/Fluxo.md "Fluxo Resumido")!
 

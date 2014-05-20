@@ -1,7 +1,7 @@
 # Fluxo:
 ============================
 
-![Diagrama de Sequencia do Fluxo](/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
+![Diagrama de Sequencia do Fluxo](/images/DiagramaSequencia.png "Diagrama de Sequencia do Fluxo")
 
 ## 1.
 O browser faz uma requisição para o QMágico para iniciar a autenticação via OpenId.
