@@ -1,4 +1,5 @@
 # coding: utf-8
+from email.charset import add_alias
 import time
 
 from django.shortcuts import render
@@ -7,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from openid.consumer import discover
 from openid.server import server
-from openid.extensions import sreg
+from openid.extensions import sreg, ax
 
 
 # Create your views here.
@@ -15,8 +16,19 @@ from openid.extensions import sreg
 from django.http import HttpResponse
 from openid.store.filestore import FileOpenIDStore
 
+def addAttributeExchangeResponse(oidrequest, response, request):
+    ax_req = ax.FetchRequest.fromOpenIDRequest(oidrequest)
+    required = ax_req.getRequiredAttrs()
+    if len(required) == 1 and 'http://axschema.org/contact/email' in required:
+        ax_resp = ax.FetchResponse(request=ax_req)
+        ax_resp.addValue('http://axschema.org/contact/email', request.session['email'])
+        response.addExtension(ax_resp)
+
+
+
 def addSRegResponse(oidrequest, response, request):
     sreg_req = sreg.SRegRequest.fromOpenIDRequest(oidrequest)
+
 
     # CAMPOS ACEITOS PELA ESPECIFICACAO SREG:
         # 'fullname':'Full Name',
@@ -67,7 +79,8 @@ def openid(request):
         saved_post_data = request.POST
     openid_request = oidserver.decodeRequest(saved_post_data)
     openid_response = openid_request.answer(True, identity=None)
-    addSRegResponse(openid_request, openid_response, request)
+    # addSRegResponse(openid_request, openid_response, request) # PROTOCOLO SREG
+    addAttributeExchangeResponse(openid_request, openid_response, request)
     webresponse = oidserver.encodeResponse(openid_response)
     # MONTA A URL COM QUERY STRING PARA REDIRECIONAR OS DADOS PARA O CONSUMIDOR
     location = None
@@ -93,6 +106,7 @@ def login(request):
     password = request.POST['password']
     if username == 'MarRib' and password == '123456':
         request.session['username'] = 'MarRib'
+        request.session['email'] = u'''marrib@mar.ri'''
         if request.POST.get('next', False):
             next = request.POST['next']
             if next:
