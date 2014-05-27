@@ -26,21 +26,20 @@ Resposta:
   <title>OpenID transaction in progress</title>
 </head>
 <body onload="document.forms[0].submit();">
-	<form id="openid_message" action="http://www.openid_server.com/openid" method="post" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
-		<input name="openid.realm" type="hidden" value="http://www.namespace.qmagico.com.br"/>
-		<input name="openid.mode" type="hidden" value="checkid_setup"/>
-		<input name="openid.identity" type="hidden" value="http://www.openid_server.com/xrds"/>
-
-		<input name="openid.assoc_handle" type="hidden" value="{HMAC-SHA1}{5373dec2}{L5fY7A==}"/>
-
-		<input name="openid.return_to" type="hidden" value="http://www.namespace.qmagico.com.br/loginopenid/complete?janrain\_nonce=2014-05-14T21%3A19%3A09ZdQl2o0"/>
-		<input name="openid.ns.sreg" type="hidden" value="http://openid.net/extensions/sreg/1.1"/>
-		<input name="openid.sreg.optional" type="hidden" value="fullname,email"/>
-		<input name="openid.ns" type="hidden" value="http://specs.openid.net/auth/2.0"/>
-		<input name="openid.sreg.required" type="hidden" value="nickname"/>
-		<input name="openid.claimed_id" type="hidden" value="http://www.openid_server.com/xrds"/>
-		<input type="submit" value="Continue"/>
-	</form>
+<form id="openid_message" action="http://www.openid_server.com/xrds" method="post" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+	<input name="openid.mode" type="hidden" value="checkid_setup"/>
+	<input name="openid.assoc_handle" type="hidden" value="1.AMlYA9Ws6vig7qRisTmncU40P_1PBBzBjfFWT0LcGdAS5SwWTk4Pvb7DrwFHbA"/>
+	<input name="openid.ns.ax" type="hidden" value="http://openid.net/srv/ax/1.0"/>
+	<input name="openid.realm" type="hidden" value="http://www.namespace.qmagico.com.br"/>
+	<input name="openid.return_to" type="hidden" value="http://www.namespace.qmagico.com.br/loginopenid/complete?janrain_nonce=2014-05-27T18%3A34%3A21ZVJNpMZ"/>
+	<input name="openid.ax.mode" type="hidden" value="fetch_request"/>
+	<input name="openid.claimed_id" type="hidden" value="http://specs.openid.net/auth/2.0/identifier_select"/>
+	<input name="openid.identity" type="hidden" value="http://specs.openid.net/auth/2.0/identifier_select"/>
+	<input name="openid.ns" type="hidden" value="http://specs.openid.net/auth/2.0"/>
+	<input name="openid.ax.type.ext0" type="hidden" value="http://axschema.org/contact/email"/>
+	<input name="openid.ax.required" type="hidden" value="ext0"/>
+	<input type="submit" value="Continue"/>
+</form>
 <script>
 	var elements = document.forms[0].elements;
 	for (var i = 0; i < elements.length; i++) {
@@ -122,11 +121,12 @@ u'openid.claimed\_id'| u'http://www.openid_server.com/xrds'
 u'openid.identity'|| u'http://www.openid_server.com/xrds'
 u'openid.mode'| u'checkid\_setup'
 u'openid.ns'| u'http://specs.openid.net/auth/2.0'
-u'openid.ns.sreg'| u'http://openid.net/extensions/sreg/1.1'
+u'openid.ns.ax'| u'http://openid.net/srv/ax/1.0'
 u'openid.realm'| u'http://www.namespace.qmagico.com.br'
 u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
-u'openid.sreg.optional'| u'fullname,email'
-u'openid.sreg.required'| u'nickname'
+u'openid.ax.mode'| u'fetch_request'
+u'openid.ax.required'| u'ext0'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
 
 - HEADER:None
 
@@ -145,14 +145,15 @@ Caso o usuário não esteja logado, as informações do POST são salvas para se
 parametro | exemplo
 :----------------:|:--------------------
 u'openid.claimed\_id'| u'http://www.openid_server.com/xrds'
-u'openid.identity'| u'http://www.openid_server.com/xrds'
+u'openid.identity'|| u'http://www.openid_server.com/xrds'
 u'openid.mode'| u'checkid\_setup'
 u'openid.ns'| u'http://specs.openid.net/auth/2.0'
-u'openid.ns.sreg'| u'http://openid.net/extensions/sreg/1.1'
+u'openid.ns.ax'| u'http://openid.net/srv/ax/1.0'
 u'openid.realm'| u'http://www.namespace.qmagico.com.br'
 u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
-u'openid.sreg.optional'| u'fullname,email'
-u'openid.sreg.required'| u'nickname'
+u'openid.ax.mode'| u'fetch_request'
+u'openid.ax.required'| u'ext0'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
 
 - HEADER:None
 
@@ -163,17 +164,20 @@ parametro | exemplo
 :----------------:|:--------------------
 'janrain\_nonce'| '2014-05-15T18%3A16%3A01ZRtjFd7'
 'openid.assoc\_handle'| '%7BHMAC-SHA1%7D%7B53750e82%7D%7BW4WfyA%3D%3D%7D'
+'openid.ax.count.ext0' | '1'
+'openid.ax.mode' | 'fetch_response'
+'openid.ax.type.ext0' | u'http%3A%2F%2axschema.org%2Fcontact%2Femail'
+'openid.ax.value.ext0.1' | 'marrib%40mar.ri'
 'openid.claimed\_id'| 'http%3A%2F%2Fwww.openid\_server.com%2Fxrds'
 'openid.identity'| 'http%3A%2F%2Fwww.openid\_server.com%2Fxrds'
 'openid.mode'| 'id\_res'
 'openid.ns'| 'http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0'
-'openid.ns.sreg'| 'http%3A%2F%2Fopenid.net%2Fextensions%2Fsreg%2F1.1'
+'openid.ns.ax' | 'http%3A%2F%2Fopenid.net%2Fsrv%2Fax%2F1.0'
 'openid.op\_endpoint'| 'http%3A%2F%2Fwww.openid\_server.com%2Fopenid'
 'openid.response\_nonce'| '2014-05-15T18%3A59%3A14Zsi1GzB'
 'openid.return\_to'| 'http%3A%2F%2Fwww.namespace.qmagico.com.br%2Floginopenid%2Fcomplete%3Fjanrain\_nonce%3D2014-05-15T18%253A16%253A01ZRtjFd7'
 'openid.sig'| 'NzTkAtz6WSqkxFZ%2BIxtRqoUirzg%3D'
-'openid.signed'| 'assoc\_handle%2Cclaimed\_id%2Cidentity%2Cmode%2Cns%2Cns.sreg%2Cop\_endpoint%2Cresponse\_nonce%2Creturn\_to%2Csigned%2Csreg.nickname'
-'openid.sreg.nickname'| 'MarRib'
+'openid.signed'| 'assoc_handle%2Cax.count.ext0%2Cax.mode%2Cax.type.ext0%2Cax.value.ext0.1%2Cclaimed_id%2Cidentity%2Cmode%2Cns%2Cns.ax%2Cop_endpoint%2Cresponse_nonce%2Creturn_to,signed'
 
 - Body: redirect para QMagico em: /loginopenid/complete
 
@@ -185,19 +189,18 @@ parametro | exemplo
 
 parametro | exemplo
 :----------------:|:--------------------
-u'openid.return\_to'| u'http://localhost:8080/loginopenid/complete?janrain\_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
-u'openid.op\_endpoint'| u'http://localhost:8090/openid'
+u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain\_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
+u'openid.op\_endpoint'| u'http://www.openid_server.com/openid'
 u'openid.ns'| u'http://specs.openid.net/auth/2.0'
-u'openid.ns.sreg'| u'http://openid.net/extensions/sreg/1.1'
+u'openid.ns.ax'| u'http://openid.net/srv/ax/1.0'
 u'openid.sig'| u'NzTkAtz6WSqkxFZ+IxtRqoUirzg='
-u'openid.sreg.nickname'| u'MarRib'
-u'openid.claimed\_id'| u'http://localhost:8090/xrds'
+u'openid.claimed\_id'| u'http://www.openid_server.com/xrds'
 u'openid.assoc\_handle'| u'{HMAC-SHA1}{53750e82}{W4WfyA==}'
 u'openid.mode'| u'id\_res'
 u'openid.response\_nonce'| u'2014-05-15T18:59:14Zsi1GzB'
-u'openid.identity'| u'http://localhost:8090/xrds'
+u'openid.identity'| u'http://www.openid_server.com/xrds'
 u'janrain\_nonce'| u'2014-05-15T18:16:01ZRtjFd7'
-u'openid.signed'| u'assoc\_handle,claimed\_id,identity,mode,ns,ns.sreg,op\_endpoint,response\_nonce,return\_to,signed,sreg.nickname'
+u'openid.signed'| u'assoc_handle,ax.count.ext0,ax.mode,ax.type.ext0,ax.value.ext0.1,claimed_id,identity,mode,ns,ns.ax,op_endpoint,response_nonce,return_to,signed'
 
 - HEADER:None
 
@@ -216,17 +219,20 @@ parametro | exemplo
 :----------------:|:--------------------
 u'janrain\_nonce'| u'2014-05-15T18:16:01ZRtjFd7'
 u'openid.assoc\_handle'| u'{HMAC-SHA1}{53750e82}{W4WfyA==}'
-u'openid.claimed\_id'| u'http://localhost:8090/xrds'
-u'openid.identity'| u'http://localhost:8090/xrds'
+u'openid.claimed\_id'| u'http://www.openid_server.com/xrds'
+u'openid.identity'| u'http://www.openid_server.com/xrds'
 u'openid.mode'| u'check\_authentication'
 u'openid.ns'| u'http://specs.openid.net/auth/2.0'
-u'openid.ns.sreg'| u'http://openid.net/extensions/sreg/1.1'
-u'openid.op\_endpoint'| u'http://localhost:8090/openid'
+u'openid.ns.ax'| u'http://openid.net/srv/ax/1.0'
+u'openid.op\_endpoint'| u'http://www.openid_server.com/openid'
 u'openid.response\_nonce'| u'2014-05-15T18:59:14Zsi1GzB'
-u'openid.return\_to'| u'http://localhost:8080/loginopenid/complete?janrain\_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
+u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain\_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
 u'openid.sig'| u'NzTkAtz6WSqkxFZ+IxtRqoUirzg='
-u'openid.signed'| u'assoc\_handle,claimed\_id,identity,mode,ns,ns.sreg,op\_endpoint,response\_nonce,return\_to,signed,sreg.nickname'
-u'openid.sreg.nickname'| u'MarRib'
+u'openid.signed'| u'assoc_handle,ax.count.ext0,ax.mode,ax.type.ext0,ax.value.ext0.1,claimed_id,identity,mode,ns,ns.ax,op_endpoint,response_nonce,return_to,signed'
+u'openid.ax.count.ext0' | u'1'
+u'openid.ax.mode' | u'fetch_response'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
+u'openid.ax.value.ext0.1' | u'marrib@mar.ri'
 
 - HEADER:None
 

@@ -14,7 +14,7 @@ Este passo não ocorre todas as vezes:
 Caso ainda não exista uma Associação pré-estabelecida, o QMágico faz uma requisição ao servidor da Escola para salvar uma Associação. Caso a resposta dessa requisição seja falsa, ao final do processo será feita uma outra requisição com a mesma finalidade. (Número 9 do fluxo).
 
 ## 4.
-O QMágico, define quais informações espera da requisição que será feita a escola, no caso, somente o 'nickname'.
+O QMágico, define quais informações espera da requisição que será feita a escola, no caso, somente o 'email'.
 Além disso, o QMágico retorna ao browser um form html preenchido, jutamente com um script javascript que faz um submit deste form, assim que o browser o recebe.
 
 ## 5.
@@ -28,23 +28,12 @@ A Escola envia para o browser a mensagem criada no passo anterior e uma url para
 
 ## 8.
 O browser faz uma chamada com a url que recebeu na requisição 7, no caso '/loginopenid/complete', onde faz algumas validações das informações que está recebendo, tais como:
-se a url que o retornou é a mesma a qual foi feita a requisição (no caso, '/openid')
-se as informações específicas do usuário que o QMágico estava esperando são as mesmas que recebeu (no caso, 'nickname')
-se as informações específicas do usuário estão de acordo com a especificação SREG
 
-CAMPOS ACEITOS PELA ESPECIFICACAO SREG:
+-se a url que o retornou é a mesma a qual foi feita a requisição (no caso, '/openid')
 
-parameter|name
-:-----------:|:--------------:
-'fullname'|'Full Name'
-'nickname'|'Nickname'
-'dob'|'Date of Birth'
-'email'|'E-mail Address'
-'gender'|'Gender'
-'postcode'|'Postal Code'
-'country'|'Country'
-'language'|'Language'
-'timezone'|'Time Zone'
+-se as informações específicas do usuário que o QMágico estava esperando são as mesmas que recebeu (no caso, 'nickname')
+
+-se as informações específicas do usuário foram as mesmas pedidas via protocolo AX, no caso, o email
 
 se o identificador do consumidor recebido pelo servidor da escola equivale ao identificador enviado (janrain\_nonce)
 
