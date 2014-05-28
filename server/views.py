@@ -18,11 +18,12 @@ from openid.store.filestore import FileOpenIDStore
 
 def addAttributeExchangeResponse(oidrequest, response, request):
     ax_req = ax.FetchRequest.fromOpenIDRequest(oidrequest)
-    required = ax_req.getRequiredAttrs()
-    if len(required) == 1 and 'http://axschema.org/contact/email' in required:
-        ax_resp = ax.FetchResponse(request=ax_req)
-        ax_resp.addValue('http://axschema.org/contact/email', request.session['email'])
-        response.addExtension(ax_resp)
+    if ax_req:
+        required = ax_req.getRequiredAttrs()
+        if len(required) == 1 and 'http://axschema.org/contact/email' in required:
+            ax_resp = ax.FetchResponse(request=ax_req)
+            ax_resp.addValue('http://axschema.org/contact/email', request.session['email'])
+            response.addExtension(ax_resp)
 
 
 
