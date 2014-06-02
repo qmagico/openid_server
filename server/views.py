@@ -53,7 +53,8 @@ def addSRegResponse(oidrequest, response, request):
 def openid(request):
     # NECESSARIAMENTE OS 3 TRECHOS DE CÓDIGO DEVEM ESTAR NESSA MESMA URL POIS O CONSUMIDOR FAZ A VERIFICACAO
     # SE A URL QUE O RESPONDER EH A MESMA URL A QUAL ELE FEZ REQUISICAO, ENTAO OS RENDERS ABAIXO NAO PODEM TROCAR DE URL
-    oidserver = server.Server(FileOpenIDStore('/tmp/openid_session_store_server'), 'http://localhost:8090/openid')
+    endpoint_url = 'http://' + request.environ['HTTP_HOST'] + '/openid'
+    oidserver = server.Server(FileOpenIDStore('/tmp/openid_session_store_server'), endpoint_url)
     # TRECHO 1
     # NESSE TRECHO DE CODIGO SE CRIA A ASSOCIACAO NECESSARIA NA PRIMEIRA INTERACAO COM O SERVIDOR
     # ESTA ASSOCIACAO COMPOE O PARAMETRO ASSOC_HANDLE NO PRIMEIRO FORM MONTADO PELO CONSUMIDOR
