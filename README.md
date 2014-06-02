@@ -30,7 +30,20 @@ python consumer.py
 
 - Pronto, seu consumidor deve estar rodando em http://localhost:8001, ou, caso você deseje alterar a porta, altere a linha 473 do consumer.py.
 
-- Para testar o seu servidor OpenId, basta inserir a url que inicia a autenticação OpenId do seu servidor, neste caso, seria: http://localhost:8090/xrds (ou a porta que você desejar) e marcar o checkbox "Request registration data", como abaixo:
+- Para se inicializar este servidor de exemplo, primeiramente, deve-se criar e ativar a 'virtual environment' via linha de comando, diretamente da raiz do projeto (/openid_server):
+
+```Shell
+python bootstrap
+source bin/activate
+```
+
+- Em seguida rodar o servidor em localhost(atentando para a porta passada como referência, elas será usada em outros casos):
+
+```Shell
+./manage.py runserver 8090
+```
+
+- Para testar o seu servidor OpenId, basta inserir a url que inicia a autenticação OpenId do seu servidor, neste caso, seria: http://localhost:8090/xrds (ou a porta que você desejar), como abaixo:
 
 ![Exemplo de entrada no Consumidor](/images/openid_consumer_example.png "Exemplo de entrada no Consumidor")
 
