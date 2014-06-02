@@ -126,7 +126,7 @@ def logout(request):
 
 def xrds(request):
     # MONTA O DOCUMENTO XRDS PARA O CONSUMIDOR
-    endpoint_url = 'http://localhost:8090/' + 'openid'
+    endpoint_url = 'http://' + request.environ['HTTP_HOST'] + '/openid'
     xrds_doc = """\
 <?xml version="1.0" encoding="UTF-8"?>
 <xrds:XRDS
