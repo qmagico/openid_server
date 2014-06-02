@@ -1,4 +1,8 @@
 *.pyc
 .idea
 *~
-
+bin/
+lib/
+include/
+local/
+distribute-*.tar.gz
