@@ -1,7 +1,4 @@
 # coding: utf-8
-from email.charset import add_alias
-import time
-
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -20,9 +17,9 @@ def addAttributeExchangeResponse(oidrequest, response, request):
     ax_req = ax.FetchRequest.fromOpenIDRequest(oidrequest)
     if ax_req:
         required = ax_req.getRequiredAttrs()
-        if len(required) == 1 and 'http://axschema.org/contact/email' in required:
+        if len(required) == 1 and 'http://axschema.org/contact/username' in required:
             ax_resp = ax.FetchResponse(request=ax_req)
-            ax_resp.addValue('http://axschema.org/contact/email', request.session['email'])
+            ax_resp.addValue('http://axschema.org/contact/username', request.session['username'])
             response.addExtension(ax_resp)
 
 
