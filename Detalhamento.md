@@ -36,7 +36,7 @@ Resposta:
 	<input name="openid.claimed_id" type="hidden" value="http://specs.openid.net/auth/2.0/identifier_select"/>
 	<input name="openid.identity" type="hidden" value="http://specs.openid.net/auth/2.0/identifier_select"/>
 	<input name="openid.ns" type="hidden" value="http://specs.openid.net/auth/2.0"/>
-	<input name="openid.ax.type.ext0" type="hidden" value="http://axschema.org/contact/email"/>
+	<input name="openid.ax.type.ext0" type="hidden" value="http://axschema.org/contact/username"/>
 	<input name="openid.ax.required" type="hidden" value="ext0"/>
 	<input type="submit" value="Continue"/>
 </form>
@@ -126,7 +126,7 @@ u'openid.realm'| u'http://www.namespace.qmagico.com.br'
 u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
 u'openid.ax.mode'| u'fetch_request'
 u'openid.ax.required'| u'ext0'
-u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/username'
 
 - HEADER:None
 
@@ -153,7 +153,7 @@ u'openid.realm'| u'http://www.namespace.qmagico.com.br'
 u'openid.return\_to'| u'http://www.namespace.qmagico.com.br/loginopenid/complete?janrain_nonce=2014-05-15T18%3A16%3A01ZRtjFd7'
 u'openid.ax.mode'| u'fetch_request'
 u'openid.ax.required'| u'ext0'
-u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/username'
 
 - HEADER:None
 
@@ -166,7 +166,7 @@ parametro | exemplo
 'openid.assoc\_handle'| '%7BHMAC-SHA1%7D%7B53750e82%7D%7BW4WfyA%3D%3D%7D'
 'openid.ax.count.ext0' | '1'
 'openid.ax.mode' | 'fetch_response'
-'openid.ax.type.ext0' | u'http%3A%2F%2axschema.org%2Fcontact%2Femail'
+'openid.ax.type.ext0' | u'http%3A%2F%2axschema.org%2Fcontact%2Fusername'
 'openid.ax.value.ext0.1' | 'marrib%40mar.ri'
 'openid.claimed\_id'| 'http%3A%2F%2Fwww.openid\_server.com%2Fxrds'
 'openid.identity'| 'http%3A%2F%2Fwww.openid\_server.com%2Fxrds'
@@ -231,7 +231,7 @@ u'openid.sig'| u'NzTkAtz6WSqkxFZ+IxtRqoUirzg='
 u'openid.signed'| u'assoc_handle,ax.count.ext0,ax.mode,ax.type.ext0,ax.value.ext0.1,claimed_id,identity,mode,ns,ns.ax,op_endpoint,response_nonce,return_to,signed'
 u'openid.ax.count.ext0' | u'1'
 u'openid.ax.mode' | u'fetch_response'
-u'openid.ax.type.ext0' | u'http://axschema.org/contact/email'
+u'openid.ax.type.ext0' | u'http://axschema.org/contact/username'
 u'openid.ax.value.ext0.1' | u'marrib@mar.ri'
 
 - HEADER:None

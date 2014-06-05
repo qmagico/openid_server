@@ -14,7 +14,7 @@ Este passo não ocorre todas as vezes:
 Caso ainda não exista uma Associação pré-estabelecida, o QMágico faz uma requisição ao servidor da Escola para salvar uma Associação. Caso a resposta dessa requisição seja falsa, ao final do processo será feita uma outra requisição com a mesma finalidade. (Número 9 do fluxo).
 
 ## 4.
-O QMágico, define quais informações espera da requisição que será feita a escola, no caso, somente o 'email'.
+O QMágico, define quais informações espera da requisição que será feita a escola, no caso, somente o 'username'.
 Além disso, o QMágico retorna ao browser um form html preenchido, jutamente com um script javascript que faz um submit deste form, assim que o browser o recebe.
 
 ## 5.
@@ -33,7 +33,7 @@ O browser faz uma chamada com a url que recebeu na requisição 7, no caso '/log
 
 -se as informações específicas do usuário que o QMágico estava esperando são as mesmas que recebeu (no caso, 'nickname')
 
--se as informações específicas do usuário foram as mesmas pedidas via protocolo AX, no caso, o email
+-se as informações específicas do usuário foram as mesmas pedidas via protocolo AX, no caso, o username
 
 se o identificador do consumidor recebido pelo servidor da escola equivale ao identificador enviado (janrain\_nonce)
 
